@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230428 12:30:30.937" rpa="false" schemaversion="3">
-<suite id="s1" name="Robot Interactive Console" source="c:\Users\lucas.santana\.vscode\extensions\robocorp.robotframework-lsp-1.10.1\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230531 14:41:33.221" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\User\.vscode\extensions\robocorp.robotframework-lsp-1.10.1\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
 <test id="s1-t1" name="Default Task/Test" line="5">
 <kw name="Interpreter Main Loop" library="MainLoop">
-<kw name="Input Text" library="RPA.Browser.Selenium">
-<arg>//input[contains(@name,'username')]</arg>
-<arg>Maria</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230428 12:31:30.809" level="FAIL">No browser is open.</msg>
-<status status="FAIL" starttime="20230428 12:31:30.806" endtime="20230428 12:31:30.814"/>
+<status status="PASS" starttime="20230531 14:41:33.258" endtime="20230531 14:41:35.164"/>
 </kw>
-<status status="PASS" starttime="20230428 12:30:30.966" endtime="20230428 12:32:01.640"/>
-</kw>
-<status status="PASS" starttime="20230428 12:30:30.966" endtime="20230428 12:32:01.641"/>
+<status status="PASS" starttime="20230531 14:41:33.258" endtime="20230531 14:41:35.164"/>
 </test>
-<status status="PASS" starttime="20230428 12:30:30.940" endtime="20230428 12:32:01.644"/>
+<status status="PASS" starttime="20230531 14:41:33.222" endtime="20230531 14:41:35.165"/>
 </suite>
 <statistics>
 <total>
