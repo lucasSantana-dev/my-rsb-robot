@@ -4,6 +4,7 @@ Library             RPA.Browser.Selenium    auto_close=${FALSE}
 Library             RPA.HTTP
 Library             RPA.Excel.Files
 Library             RPA.PDF
+Library             RPA.Robocorp.Vault
   
 *** Variables ***
 ${input_Username}        //input[contains(@name,'username')]
@@ -18,7 +19,7 @@ ${salesData}             https://robotsparebinindustries.com/SalesData.xlsx
 *** Tasks ***
 Insert the sales data for the week and export it as a PDF
     Open the intranet website
-    Log in 
+    Log in    
     Download the EXCEL file
     Fill the form using the data from the Excel file
     Collect the results
@@ -30,8 +31,9 @@ Open the intranet website
     Open Available Browser    https://robotsparebinindustries.com/
 
 Log in
-    Input Text        ${input_Username}    maria
-    Input Password    ${input_Password}    thoushallnotpass
+    ${secret}=    Get Secret    credentials
+    Input Text        ${input_Username}    ${secret}[username] 
+    Input Password    ${input_Password}    ${secret}[password]  
     Submit Form 
     Wait Until Page Contains Element       ${input_Firstname}
 
