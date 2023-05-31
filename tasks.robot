@@ -5,15 +5,11 @@ Library             RPA.HTTP
 Library             RPA.Excel.Files
 Library             RPA.PDF
 Library             RPA.Robocorp.Vault
+Resource            Resources/Elements/Main_Elements/main_elements.resource  
+#Resource            Resources/Elements/login_elements.resource
+#Resource            Resources/Elements/form_elements.resource
   
 *** Variables ***
-${input_Username}        //input[contains(@name,'username')]
-${input_Password}        //input[contains(@type,'password')]
-${button_Submit}         //button[contains(@type,'submit')]
-${input_Firstname}       firstname
-${input_Lastname}        //input[@name='lastname']
-${input_Salesresult}     salesresult
-${select_Salestarget}    salestarget
 ${salesData}             https://robotsparebinindustries.com/SalesData.xlsx
 
 *** Tasks ***
@@ -32,18 +28,18 @@ Open the intranet website
 
 Log in
     ${secret}=    Get Secret    credentials
-    Input Text        ${input_Username}    ${secret}[username] 
-    Input Password    ${input_Password}    ${secret}[password]  
+    Input Text        ${login_Page.input_Username}    ${secret}[username]   
+    Input Password    ${login_Page.input_Password}    ${secret}[password]  
     Submit Form 
-    Wait Until Page Contains Element       ${input_Firstname}
+    Wait Until Page Contains Element       ${form_Page.input_Firstname}
 
 Fill and submit the form for one person
     [Arguments]                            ${sales_Rep}
-    Input Text                             ${input_Firstname}         ${sales_Rep}[First Name]
-    Input Text                             ${input_Lastname}          ${sales_Rep}[Last Name]
-    Input Text                             ${input_Salesresult}       ${sales_Rep}[Sales]
-    Select From List By Value              ${select_Salestarget}      ${sales_Rep}[Sales Target]
-    Click Button                           ${button_Submit}
+    Input Text                             ${form_Page.input_Firstname}         ${sales_Rep}[First Name]
+    Input Text                             ${form_Page.input_Lastname}          ${sales_Rep}[Last Name]
+    Input Text                             ${form_Page.input_Salesresult}       ${sales_Rep}[Sales]
+    Select From List By Value              ${form_Page.select_Salestarget}      ${sales_Rep}[Sales Target]
+    Click Button                           ${form_Page.button_Submit}
 
 Fill the form using the data from the Excel file
     Open Workbook     SalesData.xlsx
